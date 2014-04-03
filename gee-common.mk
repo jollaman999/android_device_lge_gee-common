@@ -252,20 +252,15 @@ PRODUCT_PROPERTY_OVERRIDES += \
         telephony.lte.gsm.device=1 \
     	ro.telephony.default_network=10 \
     	ro.ril.def.preferred.network=10 \
-        drm.service.enabled=true \
-# update 1x signal strength after 2s
-	persist.radio.snapshot_enabled=1 \
-	persist.radio.snapshot_timer=2 \
-# Read value of network mode from NV
         persist.radio.mode_pref_nv10=1 \
-# Request modem to send PLMN name always irrespective
-# of display condition in EFSPN.
-# RIL uses this property.
-        persist.radio.always_send_plmn=true
+        ril.subscription.types=NV,RUIM
+
+PRODUCT_PROPERTY_OVERRIDES += \
+	drm.service.enabled=true
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0 \
-	wifi.supplicant_scan_interval=120
+	wifi.supplicant_scan_interval=15
 
 # Enable AAC 5.1 output
 PRODUCT_PROPERTY_OVERRIDES += \
