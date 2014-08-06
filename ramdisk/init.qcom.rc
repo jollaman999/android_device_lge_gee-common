@@ -479,6 +479,20 @@ service qrngd /system/bin/qrngd -f
     user root
     group root
 
+service thermald /system/bin/thermald
+    class main
+    disabled
+    oneshot
+
+service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
+    class main
+    disabled
+    oneshot
+
+## jollaman999
+stop mpdecision
+stop thermald
+
 # on property:gsm.sim.state=READY
 #    start diag_mdlog
 
