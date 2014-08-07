@@ -60,6 +60,7 @@ PRODUCT_COPY_FILES += \
 	device/lge/gee-common/ramdisk/init.qcom.rc:root/init.qcom.rc \
 	device/lge/gee-common/ramdisk/init.qcom.usb.rc:root/init.qcom.usb.rc \
 	device/lge/gee-common/ramdisk/fstab.qcom:root/fstab.qcom \
+	device/lge/gee-common/ramdisk/initlogo.rle:root/initlogo.rle \
 	device/lge/gee-common/ramdisk/twrp.fstab:recovery/root/etc/twrp.fstab \
 	device/lge/gee-common/ramdisk/ueventd.qcom.rc:root/ueventd.qcom.rc \
 	device/lge/gee-common/ramdisk/fetch-swv:system/bin/fetch-swv
