@@ -448,10 +448,6 @@ service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
     disabled
     oneshot
 
-## jollaman999
-stop mpdecision
-stop thermald
-
 # on property:gsm.sim.state=READY
 #    start diag_mdlog
 
