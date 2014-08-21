@@ -294,7 +294,7 @@ on post-fs-data
     write /sys/devices/system/cpu/cpufreq/smartmax/ramp_up_during_boost 1
     write /sys/devices/system/cpu/cpufreq/smartmax/ramp_up_step 8000
     write /sys/devices/system/cpu/cpufreq/smartmax/sampling_rate 70000
-    write /sys/devices/system/cpu/cpufreq/smartmax/suspend_ideal_freq 594000
+    write /sys/devices/system/cpu/cpufreq/smartmax/suspend_ideal_freq 702000
     write /sys/devices/system/cpu/cpufreq/smartmax/touch_poke_freq 702000
     write /sys/devices/system/cpu/cpufreq/smartmax/up_rate 30000
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk 320000000
