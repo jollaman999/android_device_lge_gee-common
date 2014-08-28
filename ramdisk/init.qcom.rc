@@ -228,10 +228,6 @@ on post-fs-data
     chown system system /sys/class/leds/led:red/brightness
     chown system system /sys/class/leds/led:green/brightness
 
-    # communicate with mpdecision and thermald
-    mkdir /dev/socket/mpdecision 0770 system system
-    chmod 2770 /dev/socket/mpdecision
-
     # adjust vibrator amplitude
     write /sys/class/timed_output/vibrator/amp 90
 
@@ -454,16 +450,6 @@ service qrngd /system/bin/qrngd -f
     user root
     group root
 
-service thermald /system/bin/thermald
-    class main
-    disabled
-    oneshot
-
-service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
-    class main
-    disabled
-    oneshot
-
 # on property:gsm.sim.state=READY
 #    start diag_mdlog
 
@@ -480,3 +466,4 @@ on property:sys.hdmi.block=unblock
 
 on property:sys.hdmi.block=internal_block
     write /sys/devices/virtual/graphics/fb1/hdmi_external_block internal_block
+
