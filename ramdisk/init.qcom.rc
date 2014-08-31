@@ -229,7 +229,7 @@ on post-fs-data
     chown system system /sys/class/leds/led:green/brightness
 
     # adjust vibrator amplitude
-    write /sys/class/timed_output/vibrator/amp 90
+    write /sys/class/timed_output/vibrator/amp 80
 
     # Hardware tunables
     chown root system /sys/devices/virtual/input/lge_touch/keypad_enable
