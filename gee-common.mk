@@ -143,10 +143,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.audio.handset.mic.type=digital \
 	persist.audio.dualmic.config=endfire \
 	persist.audio.fluence.voicecall=true \
-	persist.audio.handset.mic=dmic \
+	persist.audio.handset.mic=digital \
 	persist.audio.fluence.mode=endfire \
 	persist.audio.lowlatency.rec=false \
-	af.resampler.quality=4
+	af.resampler.quality=255
 
 
 # Do not power down SIM card when modem is sent to Low Power Mode.
@@ -299,6 +299,118 @@ PRODUCT_PACKAGES += \
 
 # QRNGD
 PRODUCT_PACKAGES += qrngd
+
+# system props for the data modules
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.use_data_netmgrd=true \
+	persist.data.netmgrd.qos.enable=false
+
+#system props for time-services
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.timed.enable=true
+
+# power save for sys event
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.radio.add_power_save=1
+
+## Sounds
+PRODUCT_PROPERTY_OVERRIDES += \
+	af.resample=48000 \
+	persist.audio.pcm.samplerate=48000 \
+	persist.audio.samplerate=48000 \
+	lpa.decode=true \
+	persist.audio.fluence.enable=1 \
+	persist.audio.hp=true \
+	persist.audio.vl.enable=true \
+	persist.audio.voicecall.mic=1 \
+	persist.audio.vr.enable=true \
+	persist.radio.jbims=1 \
+	ro.qc.sdk.audio.fluencetype=fluencepro \
+	ro.sound.driver=alsa \
+	ro.sound.alsa=snd_pcm \
+	ro.sound.alsa=WCD9310 \
+	ro.sound.alsa=msm8960sndcard
+
+## Save Battery
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.ril.disable.power.collapse=0 \
+	ro.config.hw_power_saving=1 \
+	ro.config.hw_fast_dormancy=1 \
+	pm.sleep_mode=1 \
+	wifi.supplicant_scan_interval=180
+
+## Home Launcher Always On
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.HOME_APP_ADJ=1
+
+## Phone rings immediately
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.telephony.call_ring.delay=0 \
+	ring.delay=0
+
+## Disable Blackscreen Issue After Call
+PRODUCT_PROPERTY_OVERRIDES += \
+	mot.proximity.delay=0 \
+	ro.lge.proximity.delay=25
+
+## Video Graphic
+PRODUCT_PROPERTY_OVERRIDES += \
+	debug.performance.tuning=1 \
+	video.accelerate.hw=1 \
+	debug.composition.type=gpu
+
+## Scrolling
+PRODUCT_PROPERTY_OVERRIDES += \
+	windowsmgr.max_events_per_sec=260 \
+	windowsmgr.support_rotation_270=true \
+	ro.max.fling_velocity=12000 \
+	ro.min.fling_velocity=8000
+
+## Increse JPEG Quality
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.media.enc.jpeg.quality=100
+
+## Increase Media Quality
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.media.dec.jpeg.memcap=8000000 \
+	ro.media.enc.hprof.vid.bps=8000000 \
+	ro.media.dec.aud.wma.enabled=1 \
+	ro.media.dec.vid.wmv.enabled=1 \
+	ro.media.cam.preview.fps=0 \
+	ro.media.codec_priority_for_thumb=so
+
+## Allows purging of assets to free up RAM
+PRODUCT_PROPERTY_OVERRIDES += \
+	persist.sys.purgeable_assets=1
+
+## Faster streaming videos
+PRODUCT_PROPERTY_OVERRIDES += \
+	media.stagefright.enable-player=true \
+	media.stagefright.enable-meta=true \
+	media.stagefright.enable-scan=true \
+	media.stagefright.enable-http=true \
+	media.stagefright.enable-rtsp=true \
+	media.stagefright.enable-record=false
+
+## Disable Error Reports
+PRODUCT_PROPERTY_OVERRIDES += \
+	profiler.force_disable_err_rpt=1 \
+	profiler.force_disable_ulog=1
+
+## Boot Faster
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.config.hw_quickpoweron=true \
+	persist.sys.shutdown.mode=hibernate
+
+##### fix_flicking - By jollaman999 - #####
+PRODUCT_PROPERTY_OVERRIDES += \
+	debug.sf.hw=1 \
+	debug.egl.hw=1 \
+	debug.composition.type=gpu \
+	dev.pm.gpu_samplinglate=1 \
+	debug.mdpcomp.maxlayer=2 \
+	persist.hwc.mdpcomp.enable=true \
+	ro.hwui.renderer.disable_opaque=true
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, hardware/qcom/msm8960/msm8960.mk)
