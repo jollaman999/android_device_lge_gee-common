@@ -253,12 +253,12 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Telephony Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     	telephony.lteOnCdmaDevice=1 \
-    	telephony.lte.cdma.device=1 \
-        telephony.lteOnGsmDevice=1 \
-        telephony.lte.gsm.device=1 \
+    	telephony.lteOnGsmDevice=0 \
     	ro.telephony.default_network=10 \
     	ro.ril.def.preferred.network=10 \
-        ril.subscription.types=NV,RUIM
+    	ril.subscription.types=NV,RUIM \
+    	ro.cdma.subscription=0 \
+    	ro.telephony.default_cdma_sub=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	drm.service.enabled=true
