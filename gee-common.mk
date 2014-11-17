@@ -104,12 +104,6 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
 	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml
 
-# F2FS Support
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/f2fs/fibmap.f2fs:system/bin/fibmap.f2fs \
-	$(LOCAL_PATH)/f2fs/fsck.f2fs:system/bin/fsck.f2fs \
-	$(LOCAL_PATH)/f2fs/mkfs.f2fs:system/bin/mkfs.f2fs
-
 # NFC packages
 PRODUCT_PACKAGES += \
 	libnfc \
